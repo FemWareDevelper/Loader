@@ -1,0 +1,9 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+local dealer = workspace:FindFirstChild("Dealer")
+
+if dealer and dealer:IsA("Model") then
+    local dealerPosition = dealer:GetPrimaryPartCFrame()
+    character:SetPrimaryPartCFrame(dealerPosition)
+end
