@@ -1,0 +1,21 @@
+local player = game:GetService("Players").LocalPlayer
+local starterGui = player:FindFirstChild("PlayerGui")
+
+-- Orijinal GUI'nin yolu
+local shopGUI = workspace.Dealer.HumanoidRootPart.InteractAttachment:FindFirstChild("ShopGUI")
+
+if shopGUI and starterGui then
+    -- GUI'nin kopyasını oluştur
+    local newGUI = shopGUI:Clone()
+    newGUI.Parent = starterGui -- Player'ın GUI'sine ekle
+    
+    print("ShopGUI başarıyla eklendi! 15 saniye sonra devre dışı bırakılacak.")
+
+    -- 15 saniye bekle ve sonra GUI'yi kapat
+    task.wait(15)
+    
+    if newGUI then
+        newGUI.Enabled = false
+        print("ShopGUI devre dışı bırakıldı.")
+    end
+end
